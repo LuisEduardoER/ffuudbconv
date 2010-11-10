@@ -22,7 +22,7 @@ public class SQL_Writer {
 		doWrite();
 		sql_file.Close();
 		csv_file.Close();
-		System.exit(0);
+		Main.Quit();
 	}
 	
 	

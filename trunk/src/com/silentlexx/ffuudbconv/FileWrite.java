@@ -51,7 +51,7 @@ public class FileWrite {
 			} else return false;
 			}
 
-			public boolean Writeln(String s){
+       public boolean Writeln(String s){
 			if( file != null && isOpen && s != null ){
 			 	
 			file.println(s);
@@ -61,7 +61,21 @@ public class FileWrite {
 		     
 		}
 		
-		public boolean Close() {
+       
+		public boolean Writeln(int s){
+			if( file != null && isOpen ){
+			 	
+			file.println(s);
+			return true;				
+				
+			} else return false;
+		     
+		}
+		
+       
+       
+       
+       public boolean Close() {
 			if(isOpen && file != null) {
 				file.close();
 				file = null;
