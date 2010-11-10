@@ -16,12 +16,15 @@ public class CSV_Reader {
 		FileRead ft = new FileRead(csv_filename);
 			ft.Open();
 			fields_info.parseCVS(ft.Readln());	
+		/*
 			while (!ft.isEOF()) {
 				ft.Readln();
 				lines++;
 			}
 			fields_info.setLines(lines);
+		
 			D.p("Found of Lines: "+lines);
+		*/
 			ft.Close();
 			
 	}

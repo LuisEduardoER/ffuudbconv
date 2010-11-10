@@ -10,11 +10,13 @@ import javax.swing.JFrame;
 import java.awt.GridBagLayout;
 import javax.swing.JComboBox;
 import java.awt.GridBagConstraints;
+import java.io.File;
+
 import javax.swing.JButton;
 
 public class Gui {
 	final static int max = 32;
-	final static String iconka = "ffuudbconv.png";
+	final static String iconka = "resources/ffuudbconv.png";
 	private JFrame frame = null;
 	private JComboBox[] list = new JComboBox[max];
 	private JLabel[] imya = new JLabel[max];
@@ -23,7 +25,7 @@ public class Gui {
 	Debug D;
 	private JButton jButton = null;
 	private int n = 0;
-	
+	private ImageIcon icon;
 	  private static void addComponent(Container container, Component component, int gridx, int gridy,
 		      int gridwidth, int gridheight, int anchor, int fill) {
 		    GridBagConstraints gbc = new GridBagConstraints(gridx, gridy, gridwidth, gridheight, 1.0, 1.0,
@@ -53,17 +55,20 @@ public class Gui {
 		    		    
 		    	    
 			frame.setTitle("FFUU~ DB Converter by SilentLexx");
-			ImageIcon icon = new ImageIcon(iconka);
+					
+			icon = getImageIcon(iconka);
 			
-			if (icon==null) {
-			 icon = new ImageIcon(getClass().getResource(iconka));
-			 }
-			if (icon!=null) {
 			frame.setIconImage(icon.getImage());
-			} else D.p("Title icon not loladed!");
+			
 		}
 		return frame;
 	}
+
+	private ImageIcon getImageIcon(String name) {
+		File f = new File(name);  
+		if (f.exists()) return new ImageIcon(name);    
+		return new ImageIcon(ClassLoader.getSystemResource(name));
+	   }
 
 
 	Gui(FieldsInfo fi) {
