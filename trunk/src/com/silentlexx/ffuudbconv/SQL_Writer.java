@@ -49,7 +49,7 @@ public class SQL_Writer {
 		String bb;
 		for (int i=0;i<fields_info.getNumSQL();i++){
 			in = fields_info.getSC(i);
-			if (in > -1) {
+			if (in > -1 && in < bs.length) {
 				bb = bs[in];
 			} else {
 				bb = "";
