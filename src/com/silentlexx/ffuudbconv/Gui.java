@@ -4,7 +4,7 @@ package com.silentlexx.ffuudbconv;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Insets;
-
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JFrame;
 import java.awt.GridBagLayout;
@@ -14,6 +14,7 @@ import javax.swing.JButton;
 
 public class Gui {
 	final static int max = 32;
+	final static String iconka = "ffuudbconv.png";
 	private JFrame frame = null;
 	private JComboBox[] list = new JComboBox[max];
 	private JLabel[] imya = new JLabel[max];
@@ -50,7 +51,16 @@ public class Gui {
 		    n++;
 		    addComponent(frame, getJButton(), 0, n, 2, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH);
 		    		    
+		    	    
 			frame.setTitle("FFUU~ DB Converter by SilentLexx");
+			ImageIcon icon = new ImageIcon(iconka);
+			
+			if (icon==null) {
+			 icon = new ImageIcon(getClass().getResource(iconka));
+			 }
+			if (icon!=null) {
+			frame.setIconImage(icon.getImage());
+			} else D.p("Title icon not loladed!");
 		}
 		return frame;
 	}
